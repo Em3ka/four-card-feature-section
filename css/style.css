@@ -1,0 +1,150 @@
+:root {
+  --red-400: hsl(0, 78%, 62%);
+  --cyan-500: hsl(180, 62%, 55%);
+  --orange-400: hsl(34, 97%, 64%);
+  --blue-400: hsl(212, 86%, 64%);
+  --gray-100: hsl(0, 0%, 98%);
+  --gray-400: hsl(229, 6%, 66%);
+  --gray-700: hsl(234, 12%, 34%);
+  --fs-1: clamp(1.5rem, 1.2727272727272727rem + 0.9696969696969697vw, 2rem);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul[class] {
+  list-style: none;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-size: 0.9375rem;
+  background-color: var(--gray-100);
+}
+
+/* Utilities */
+.wrapper {
+  padding-inline: 2rem;
+}
+
+.content-flow > * + * {
+  margin-block-start: var(--row-gap, 1rem);
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+/* Component Styles */
+.feature {
+  min-height: 100vh;
+  max-width: 75rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-text {
+  max-width: 31rem;
+  margin-inline: auto;
+  text-align: center;
+  padding-block-start: 4.5rem;
+}
+
+.feature-text__title {
+  color: var(--gray-700);
+  font-size: var(--fs-1);
+  font-weight: 200;
+  margin-block-end: 1rem;
+}
+
+.feature-text__description {
+  color: var(--gray-400);
+  font-size: 1rem;
+}
+
+.feature-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding-block: 4.5rem;
+}
+
+.feature-list__item {
+  --row-gap: 1.5rem;
+}
+
+.feature-list__item-card {
+  display: grid;
+  grid-template-rows: min-content 6rem auto;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 20px hsla(0, 0%, 0%, 0.25);
+}
+
+.feature-list__item-card h2 {
+  font-size: 1.25rem;
+  color: var(--gray-700);
+}
+
+.feature-list__item-card p {
+  color: var(--gray-400);
+  margin-block: 0.5rem 3rem;
+}
+
+.feature-list__item-card img {
+  width: 3.5rem;
+  margin-inline-start: auto;
+}
+
+.card-one {
+  border-top: 4px solid var(--cyan-500);
+}
+
+.card-two {
+  border-top: 4px solid var(--red-400);
+}
+
+.card-three {
+  border-top: 4px solid var(--orange-400);
+}
+
+.card-four {
+  border-top: 4px solid var(--blue-400);
+}
+
+/* Media Queries */
+@media (min-width: 48rem) {
+  .grid-column {
+    grid-row: span 2;
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 62.5rem) {
+  .grid-column {
+    grid-row: span 1;
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+}
